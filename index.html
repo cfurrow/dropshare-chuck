@@ -434,8 +434,10 @@
           var $preview = $('[data-url]');
           var ext = $preview.data('url').split('.').pop();
 
-          // Add video player.
+          
           if ($.inArray(ext, Object.keys(videoMimes)) >= 0) {
+            // Add video player.
+            $preview.empty(); // clear any existing players
             var $video = $('<video />', {
               'class': 'video',
               'controls': 'controls'
@@ -449,8 +451,10 @@
             }).appendTo($video);
             $video.appendTo($preview);
 
-            // Add audio player.
+            
           } else if ($.inArray(ext, Object.keys(audioMimes)) >= 0) {
+            // Add audio player.
+            $preview.empty(); // clear any existing players
             var $audio = $('<audio />', {
               'class': 'audio',
               'controls': 'controls'
